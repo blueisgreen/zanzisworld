@@ -3,10 +3,6 @@ const user = useSupabaseUser()
 </script>
 
 <template>
-  <div>
-    <ZanziHero />
-    <SupaTestPattern />
-  </div>
   <div class="container" style="padding: 50px 0 100px 0">
     <Account v-if="user" />
     <SupaAuth v-else />
