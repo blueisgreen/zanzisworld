@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div>Zanzi's World of Nuclear Energy</div>
+    <h1 class="header">Zanzi's World of Nuclear Energy</h1>
     <slot />
   </div>
 </template>

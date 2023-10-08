@@ -2,6 +2,11 @@
 export default defineNuxtConfig({
   modules: ['@nuxtjs/supabase'],
   css: ['@/assets/main.css'],
+  runtimeConfig: {
+    public: {
+      baseUrl: process.env.BASE_URL,
+    },
+  },
   supabase: {
     redirect: false,
     redirectOptions: {
