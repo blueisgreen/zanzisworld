@@ -1,7 +1,7 @@
 <template>
   <form class="row flex-center flex" @submit.prevent="handleLogin">
     <div class="col-6 form-widget">
-      <h1 class="header">Supabase + Nuxt 3</h1>
+      <h1 class="header">Sign in to Zanzibar's World</h1>
       <p class="description">Sign in via magic link with your email below</p>
       <div>
         <input
@@ -19,10 +19,14 @@
           :disabled="loading"
         />
       </div>
-      <button @click="signInWithOAuth">Sign In with GitHub</button>
-      <button @click="signOut">Sign Out</button>
     </div>
   </form>
+  <div class="row flex-center flex">
+    <button @click="signInWithOAuth">Sign In with GitHub</button>
+  </div>
+  <div class="row flex-center flex">
+    <button @click="signOut">Sign Out</button>
+  </div>
 </template>
 
 <script setup>
@@ -33,6 +37,7 @@ const loading = ref(false)
 const email = ref('')
 
 const handleLogin = async () => {
+  console.log('sign in with magic link')
   try {
     loading.value = true
     const { error } = await supabase.auth.signInWithOtp({
@@ -55,6 +60,7 @@ const handleLogin = async () => {
 }
 
 const signInWithOAuth = async () => {
+  console.log('sign in with GitHub')
   console.log('baseUrl: ' + config.public.baseUrl)
   const { error } = await supabase.auth.signInWithOAuth({
     provider: 'github',
@@ -66,6 +72,7 @@ const signInWithOAuth = async () => {
 }
 
 const signOut = async () => {
+  console.log('sign out')
   const { error } = await supabase.auth.signOut()
   if (error) console.log(error)
 }

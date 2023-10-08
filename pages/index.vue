@@ -1,7 +1,3 @@
-<script setup>
-const user = useSupabaseUser()
-</script>
-
 <template>
   <div>
     <ZanziHero />
@@ -9,3 +5,9 @@ const user = useSupabaseUser()
     <AccountAvatar />
   </div>
 </template>
+
+<script setup>
+const user = useSupabaseUser()
+const config = useRuntimeConfig()
+console.log('baseUrl: ' + config.public.baseUrl)
+</script>
